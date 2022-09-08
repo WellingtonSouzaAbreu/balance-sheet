@@ -5,12 +5,7 @@
     border-radius: 20px;
     padding: 10px;
     border: 1px solid #2F785D;
-    overflow-y: auto;
-    resize:both;
-}
-
-.table::-webkit-scrollbar{
-    display: none;
+    resize: both;
 }
 
 .header {
@@ -27,10 +22,15 @@
 
 .body {
     width: 100%;
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: row;
     justify-content: stretch;
+    overflow-y: auto;
+}
+
+.body::-webkit-scrollbar {
+    display: none;
 }
 
 .horizontalLine {
@@ -52,6 +52,7 @@
 .verticalLine {
     width: 3px;
     height: 100%;
+    flex-grow: 100;
     background-color: #2F785D;
 }
 
@@ -75,7 +76,7 @@
     margin: 1px 10px 1px 10px;
 }
 
-.valueLabel{
+.valueLabel {
     font-size: 17px;
     color: #000;
     font-weight: bold;
@@ -83,21 +84,21 @@
 }
 
 .inputValueRow:hover {
-    background-color:#2F785D;
+    background-color: #2F785D;
 }
 
-.inputValueRow:hover > span{
+.inputValueRow:hover>span {
     color: #fff;
 }
 
-.result{
+.result {
     font-size: 17px;
     color: #2F785D;
     font-weight: bold;
     margin: 10px 10px 10px 10px;
 }
 
-.resultArea{
+.resultArea {
     width: 100%;
     display: flex;
     flex-direction: column;

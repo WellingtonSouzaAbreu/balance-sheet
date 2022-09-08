@@ -8,27 +8,16 @@ interface RationalesProps {
     releasesList: Release[]
 }
 
-const releasesList: Release[] = [
-    {
-        lauchId: 1,
-        value: 800,
-        title: 'Traficante',
-        position: 'active',
-        nature: 'C',
-        accountType: 'P'
-    }
-]
-
 function Rationales(props: RationalesProps) {
 
     const [groupedAccounts, setGroupedAccounts] = useState([])
 
     useEffect(() => {
         groupAccountsByType()
-    },[props.releasesList])
+    }, [props.releasesList])
 
-    const groupAccountsByType = async () => { // TODO from props
-        const groupedAccounts = releasesList.reduce((acc: any, current: any) => {
+    const groupAccountsByType = async () => {//TODO props.releasesList
+        const groupedAccounts = props.releasesList.reduce((acc: any, current: any) => {
             const account = current.title
 
             if (Object.keys(acc).includes(account)) {

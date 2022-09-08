@@ -5,6 +5,594 @@ import styles from './App.module.css'
 import { useState } from 'react'
 import { Release } from './components/types'
 
+const releasesListDefault: Release[] = [
+    {
+        lauchId: 1,
+        value: 500,
+        title: 'Traficante',
+        position: 'active',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 500,
+        title: 'Fornecedor',
+        position: 'active',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 1500,
+        title: 'Fornecedor',
+        position: 'active',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1000,
+        title: 'Concecionária',
+        position: 'passive',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 800,
+        title: 'Concecionária',
+        position: 'passive',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 800,
+        title: 'Empréstimo',
+        position: 'passive',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 2,
+        value: 1500,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 750,
+        title: 'Sócios',
+        position: 'cs',
+        nature: 'D',
+        accountType: 'P'
+    },
+    {
+        lauchId: 1,
+        value: 800,
+        title: 'Doações',
+        position: 'cs',
+        nature: 'C',
+        accountType: 'P'
+    },
+]
+
+
 function App() {
     const [releasesList, setReleaseList] = useState([])
 
@@ -41,7 +629,7 @@ function App() {
         <div className={styles.container}>
             <div className={styles.sidebar}>
                 <LauchingSideBar
-                    releasesList={releasesList}
+                    releasesList={releasesListDefault} //TODO Remove default
                     performLauch={performLauch}
                     deleteRelease={deleteRelease}
                 />
@@ -50,7 +638,7 @@ function App() {
                 <div className={styles.headerArea}>
                     <span className={styles.headerTitle}>BALANÇO PATRIMONIAL</span>
                 </div>
-                <ResultsArea releasesList={releasesList} />
+                <ResultsArea releasesList={releasesListDefault} />
             </div>
         </div>
     )

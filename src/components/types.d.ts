@@ -7,7 +7,7 @@ export type Release = {
     accountType: AccountType
 }
 
-export type MenuOptions = 'rationales' | 'balanceSheet' | 'are' | 'swing'
+export type MenuOptions = 'rationales' | 'balanceSheet' | 'are' | 'patrimonyBalance'
 
 export type AccountType = 'P' | 'R' | 'D'
 

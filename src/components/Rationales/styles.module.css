@@ -2,6 +2,8 @@
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: row;
-    overflow-x: auto;
+    justify-content: space-around;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
 }

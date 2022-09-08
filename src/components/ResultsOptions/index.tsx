@@ -35,6 +35,16 @@ function ResultOptions(props: ResultOptionsProps) {
                 </button>
                 <button
                     className={
+                        props.optionSelected == 'patrimonyBalance'
+                            ? styles.optionItemSelected
+                            : styles.optionItem
+                    }
+                    onClick={() => props.selectOption('patrimonyBalance')}
+                >
+                    <span className={styles.optionItemLabel}>Balanço</span>
+                </button>
+                <button
+                    className={
                         props.optionSelected == 'are'
                             ? styles.optionItemSelected
                             : styles.optionItem
@@ -42,16 +52,6 @@ function ResultOptions(props: ResultOptionsProps) {
                     onClick={() => props.selectOption('are')}
                 >
                     <span className={styles.optionItemLabel}>A.R.E.</span>
-                </button>
-                <button
-                    className={
-                        props.optionSelected == 'swing'
-                            ? styles.optionItemSelected
-                            : styles.optionItem
-                    }
-                    onClick={() => props.selectOption('swing')}
-                >
-                    <span className={styles.optionItemLabel}>Balanço</span>
                 </button>
             </div>
             <Line relativeWidth='70%' color={'#2A755A'} />

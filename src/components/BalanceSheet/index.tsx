@@ -8,41 +8,6 @@ interface BalanceSheetProps {
     releasesList: Release[]
 }
 
-const releasesList: Release[] = [
-    {
-        lauchId: 1,
-        value: 800,
-        title: 'Traficante',
-        position: 'active',
-        nature: 'C',
-        accountType: 'D'
-    },
-    {
-        lauchId: 1,
-        value: 800,
-        title: 'Traficante',
-        position: 'active',
-        nature: 'C',
-        accountType: 'P'
-    },
-    {
-        lauchId: 1,
-        value: 800,
-        title: 'Fornecedor',
-        position: 'active',
-        nature: 'C',
-        accountType: 'P'
-    },
-    {
-        lauchId: 1,
-        value: 200,
-        title: 'Fornecedor',
-        position: 'active',
-        nature: 'D',
-        accountType: 'P'
-    },
-]
-
 function BalanceSheet(props: BalanceSheetProps) {
     // console.log(releasesList)
 
@@ -52,8 +17,8 @@ function BalanceSheet(props: BalanceSheetProps) {
         groupAccountsByType()
     }, [props.releasesList])
 
-    const groupAccountsByType = async () => { // TODO from props
-        const groupedAccounts = releasesList.reduce((acc: any, current: Release) => {
+    const groupAccountsByType = async () => {
+        const groupedAccounts = props.releasesList.reduce((acc: any, current: Release) => {
             const account = current.title
 
             if (current.accountType !== 'P') return acc
@@ -133,11 +98,10 @@ function BalanceSheet(props: BalanceSheetProps) {
 
     const renderSumOfValuesByNature = (nature: string) => {
         return <span className={styles.result}>
-            {releasesList.reduce((acc: any, current: Release) => {
+            {props.releasesList.reduce((acc: any, current: Release) => {
                 if (current.nature == nature && current.accountType == 'P') {
                     return acc + current.value
                 }
-
                 return acc
             }, 0)}
         </span>

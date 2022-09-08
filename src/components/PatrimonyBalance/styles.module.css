@@ -1,15 +1,15 @@
 .table {
-    width: 80%;
+    width: 70%;
     height: 70%;
     margin: 20px;
     border-radius: 20px;
     padding: 10px;
     border: 1px solid #2F785D;
     overflow-y: auto;
-    resize:both;
+    resize: both;
 }
 
-.table::-webkit-scrollbar{
+.table::-webkit-scrollbar {
     display: none;
 }
 
@@ -21,7 +21,7 @@
 .titleArea {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -45,12 +45,7 @@
 }
 
 .leftArea {
-    width: 33%;
-    height: 100%;
-}
-
-.centerArea {
-    width: 33%;
+    width: 49%;
     height: 100%;
 }
 
@@ -61,43 +56,56 @@
 }
 
 .rightArea {
-    width: 33%;
+    width: 49%;
     height: 100%;
+}
+
+.rightTopArea {
+    height: 60%;
+}
+
+.rightBottomArea {
+    height: 40%;
 }
 
 .inputValueRow {
     width: 100%;
     cursor: pointer;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    color: #000;
-    padding: 5px 0px 5px 0px;
 }
 
-.valueLabel{
+.lauchIdLabel {
+    font-size: 16px;
+    color: #2A755A;
+    font-weight: bold;
+    margin: 1px 10px 1px 10px;
+}
+
+.valueLabel {
     font-size: 17px;
-    color: #000;
+    color: rgb(0, 0, 0);
     font-weight: bold;
     margin: 1px 10px 1px 10px;
 }
 
 .inputValueRow:hover {
-    background-color:#2F785D;
+    background-color: #2F785D;
 }
 
-.inputValueRow:hover > span{
+.inputValueRow:hover>span {
     color: #fff;
 }
 
-.result{
+.result {
     font-size: 17px;
     color: #2F785D;
     font-weight: bold;
     margin: 10px 10px 10px 10px;
 }
 
-.resultArea{
+.resultArea {
     width: 100%;
     display: flex;
     flex-direction: column;
