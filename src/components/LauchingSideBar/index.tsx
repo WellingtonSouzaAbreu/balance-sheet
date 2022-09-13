@@ -13,6 +13,7 @@ interface LauchingSideBar {
 
 export function LauchingSideBar(props: LauchingSideBar) {
 
+    const [lauchId, setLauchId] = useState(0)
     const [title, setTitle] = useState('')
     const [nature, setNature] = useState('')
     const [position, setPosition] = useState('')
@@ -21,16 +22,7 @@ export function LauchingSideBar(props: LauchingSideBar) {
 
     const lauchButtonRef = useRef<any>(null)
 
-    const defaultAccountTitles = ['Fornecedor', 'Caixa', 'Equipamentos', 'Móveis', 'Imóveis']
-
-    const showFormData = () => {
-        // console.log(title)
-        /* console.log(nature)
-        console.log(position)
-        console.log(value) */
-    }
-
-    showFormData()
+    const defaultAccountTitles = ['Capital Social', 'Fornecedor', 'Caixa', 'Equipamentos', 'Móveis', 'Imóveis', 'Empréstimo']
 
     const saveNewRelease = () => {
         if (!fildsAreValid()) {
@@ -39,14 +31,28 @@ export function LauchingSideBar(props: LauchingSideBar) {
         }
 
         props.performLauch({
-            lauchId: 0,
+            lauchId,
             title,
             nature,
             position,
             value: parseFloat(value as any),
-            accountType 
+            accountType
         })
 
+        cleanFields()
+    }
+
+    const editRelease = (release: Release) => {
+        setLauchId(release.lauchId)
+        setTitle(release.title)
+        setNature(release.nature)
+        setPosition(release.position)
+        setTValue(release.value)
+        setAccountType(release.accountType)
+    }
+
+    const deleteRelease = (lauchId: number) => {
+        props.deleteRelease(lauchId)
         cleanFields()
     }
 
@@ -60,6 +66,7 @@ export function LauchingSideBar(props: LauchingSideBar) {
     }
 
     const cleanFields = () => {
+        setLauchId(0)
         setTitle('')
         setNature('')
         setPosition('')
@@ -68,7 +75,8 @@ export function LauchingSideBar(props: LauchingSideBar) {
     }
 
     const getDefaultAccountTitle = () => {
-        return defaultAccountTitles.map((accountTitle: string, index: number) => {
+
+        return defaultAccountTitles.sort().map((accountTitle: string, index: number) => {
             return (
                 <option value={accountTitle} key={index} />
             )
@@ -126,6 +134,7 @@ export function LauchingSideBar(props: LauchingSideBar) {
                     </label>
                     <label className={styles.ratioLabel}>
                         <input
+                            disabled={true}
                             name={'expense'}
                             type={'radio'}
                             value={'D'}
@@ -137,6 +146,7 @@ export function LauchingSideBar(props: LauchingSideBar) {
                     </label>
                     <label className={styles.ratioLabel}>
                         <input
+                            disabled={true}
                             name={'revenue'}
                             type={'radio'}
                             value={'R'}
@@ -189,7 +199,8 @@ export function LauchingSideBar(props: LauchingSideBar) {
             <Line relativeWidth={'70%'} color={'#FFFFFF'} />
             <Releases
                 releasesList={props.releasesList}
-                deleteRelease={props.deleteRelease}
+                deleteRelease={deleteRelease}
+                editRelease={editRelease}
             />
         </div>
     );

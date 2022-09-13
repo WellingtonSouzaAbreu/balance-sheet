@@ -14,7 +14,7 @@ interface ResultsAreaProps {
 
 function ResultsArea(props: ResultsAreaProps) {
 
-    const [optionSelected, setOptionSelected] = useState<MenuOptions>('patrimonyBalance')
+    const [optionSelected, setOptionSelected] = useState<MenuOptions>('rationales')
 
     const renderResultSelected = () => {
         switch (optionSelected) {
@@ -37,6 +37,9 @@ function ResultsArea(props: ResultsAreaProps) {
             />
             <br />
             {renderResultSelected()}
+            <div className={styles.copyright}>
+                <span>Developed by Wellington Souza</span>
+            </div>
         </div>
     )
 }

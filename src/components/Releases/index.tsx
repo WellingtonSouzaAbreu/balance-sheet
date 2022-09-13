@@ -6,6 +6,7 @@ import styles from './styles.module.css'
 interface ReleasesProps {
     releasesList: Release[],
     deleteRelease: (index: number) => void
+    editRelease: (release: Release) => void
 }
 
 function Releases(props: ReleasesProps) {
@@ -15,6 +16,7 @@ function Releases(props: ReleasesProps) {
                 <div
                     className={styles.releaseArea}
                     key={index}
+                    onClick={() => props.editRelease(release)}
                     onDoubleClick={() => props.deleteRelease(release.lauchId)}
                 >
                     <span className={styles.release}>

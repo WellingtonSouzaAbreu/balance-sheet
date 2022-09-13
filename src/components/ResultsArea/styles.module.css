@@ -5,3 +5,14 @@
     width: 100%;
     height: 100%;
 }
+
+.copyright{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.copyright > span{
+    color: gray;
+    font-size: 13px;
+}
